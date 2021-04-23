@@ -18,7 +18,7 @@ function Foreach-ComputerApp {
     if ($PCNames.name.count -le 1) 
     {
         $ComputerNames = $PCNames.Name
-        $ErrorMessage + "`n`r" + "$ComputerNames"
+        $ErrorMessage + "`n`r" + "$PCName"
         return $ErrorMessage
         break
     }

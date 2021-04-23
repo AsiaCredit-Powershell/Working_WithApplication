@@ -29,12 +29,12 @@ function Foreach-ComputerApp {
         {
             if ($Null -ne $FilterApp)
             {
-                $Output = $CommandLine -PCName $Computername -FilterApp $FilterApp
+                $Output = & $CommandLine -PCName $Computername -FilterApp $FilterApp
             }
                     
             else 
             {
-                $Output = $CommandLine -PCName $Computername 
+                $Output = & $CommandLine -PCName $Computername 
             }
         }
     }

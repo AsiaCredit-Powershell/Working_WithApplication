@@ -26,8 +26,7 @@ Function Remove-Application {
                 
         else 
         {
-            Invoke-Command -ComputerName $PC -ScriptBlock 
-            { 
+            Invoke-Command -ComputerName $PC -ScriptBlock { 
         
                 # Беру все установленные приложения и ищу в них нужное, записываю в переменную ее имя 
                 $GetFilterProgramm = Get-WmiObject -Class Win32_Product -Filter "name -like '*$Using:FilterApp*'"
@@ -36,7 +35,7 @@ Function Remove-Application {
                 # Если нет объекта - тогда выводим сообщение 
                 if ($null -eq $GetFilterProgramm) 
                 {
-                    $Message = "удален или не обнаружен КриптоПро CSP*"
+                    $Message = $AppNames + "удален или не обнаружен "
                 }
 
                 # Если объект есть - тогда удаляем
@@ -55,12 +54,12 @@ Function Remove-Application {
                     # Осуществляем проверку удаления 
                     if ($null -eq $GetFilterProgramm) 
                     {
-                        $Message = "удален КриптоПро CSP*"
+                        $Message = $AppNames + "удален "
                     }
             
                     else 
                     {
-                        $Message = "присутствует КриптоПро CSP* - удалить его не вышло"
+                        $Message = $AppNames + " - удалить его не вышло"
                     }
                 } 
                     
